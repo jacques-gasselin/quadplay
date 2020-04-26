@@ -1,0 +1,7 @@
+{
+    "title":      "TicTacToe",
+    "modes":      ["TicTacToe*", "PlayerSelect", "Game", "EndGame"],
+    "assets": {
+        "font": "quad://fonts/cga-7.font.json"
+    }
+}

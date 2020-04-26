@@ -1,0 +1,21 @@
+init
+───────────────────────────────────────────────────────────
+let players = 1
+
+frame
+───────────────────────────────────────────────────────────
+players = players + joy.yy
+if players < 1:
+    players = 2
+if players > 2:
+    players = 1
+
+draw_text(font, "Player Select", ½ SCREEN_SIZE, #f, #0, #0, "center")
+
+draw_text(font, "1 Player", xy(½ SCREEN_SIZE.x, ½ SCREEN_SIZE.y + 20), if players == 1 then #f else #d, #0, #0, "center")
+draw_text(font, "2 Player", xy(½ SCREEN_SIZE.x, ½ SCREEN_SIZE.y + 30), if players == 2 then #f else #d, #0, #0, "center")
+draw_tri(xy(0,0), xy(-5, -5), xy(-5, 5), #e, #0, ½ SCREEN_SIZE + xy(-30, 7 + 10 * players))
+
+draw_text(font, replace("press (a) to play", joy.prompt), xy(½ SCREEN_SIZE.x, SCREEN_SIZE.y - 10), #a, #0, #0, "center")
+
+if joy.pressed_a: set_mode(Game, "pressed_a")

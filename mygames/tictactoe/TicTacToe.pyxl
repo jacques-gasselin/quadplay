@@ -1,0 +1,6 @@
+draw_text({font: font, text: "Tic Tac Toe", pos: ½ SCREEN_SIZE, color: #f, x_align: "center"})
+
+draw_text({font: font, text: "press any key", pos: xy(½ SCREEN_SIZE.x, SCREEN_SIZE.y - 10), color: #a, x_align: "center"})
+
+if any_button_press(): set_mode(PlayerSelect, "any_button_press()")
+
