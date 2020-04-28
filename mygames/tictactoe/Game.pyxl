@@ -37,14 +37,11 @@ for 0 <= x < 3:
         else if board[y * 3 + x] == 2:
             draw_disk(pos, size.x / 2, ∅, #c)
 
-if player == 1:
-    draw_text(font, replace("press (a) to place your X", joy.prompt), xy(½ SCREEN_SIZE.x, SCREEN_SIZE.y - 10), #a, #0, #0, "center")
-if player == 2:
-    draw_text(font, replace("press (a) to place your O", joy.prompt), xy(½ SCREEN_SIZE.x, SCREEN_SIZE.y - 10), #a, #0, #0, "center")
-
-if joy.pressed_a:
-    board[cursor.y * 3 + cursor.x] = player
-    if player == 1: player = 2
-    else if player == 2: player = 1
+if board[cursor.y * 3 + cursor.x] == 0:
+    let msg = replace(if player == 1 then "press (a) to place your X" else "press (a) to place your O", joy.prompt)
+    draw_text(font, msg, xy(½ SCREEN_SIZE.x, SCREEN_SIZE.y - 10), #a, #0, #0, "center")
+    if joy.pressed_a:
+        board[cursor.y * 3 + cursor.x] = player
+        player = if player == 1 then 2 else 1
 
 if joy.pressed_q: set_mode(EndGame, "pressed_q")
