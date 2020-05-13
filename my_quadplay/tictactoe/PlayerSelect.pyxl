@@ -18,4 +18,8 @@ draw_tri(xy(0,0), xy(-5, -5), xy(-5, 5), #e, #0, ½ SCREEN_SIZE + xy(-30, 7 + 10
 
 draw_text(font, replace("press (a) to play", joy.prompt), xy(½ SCREEN_SIZE.x, SCREEN_SIZE.y - 10), #a, #0, #0, "center")
 
-if joy.pressed_a: set_mode(Game, "pressed_a")
+if joy.pressed_a:
+    if players == 1:
+        set_mode(Game, "pressed_a", "human", "ai")
+    else:
+        set_mode(Game, "pressed_a", "human", "human")
